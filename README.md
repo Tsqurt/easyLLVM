@@ -3,13 +3,39 @@ A user-friendly configurator for simplifying LLVM processing workflows, supporti
 
 ## Usage
 
+Note: this feature is not implemented yet.
+
+```bash
+# easyLLVM is an adapter for compiler, you can use it, just like clang
+easyLLVM -c input.c -o output.o
+easyLLVM main.c -o main.elf
+
+# the only difference is '-c' is omitted (default behavior)
+# result is determined by whether the file contains 'main' function
+easyLLVM input.c -o output.elf # OK, not executable
+easyLLVM -c main.c -o main.o # OK, executable
+
+# you can also use it as a project management tool
+easyLLVM your_project.yaml
+
+# to create a valid yaml file, you can use the following command
+easyLLVM --init-project your_project.yaml
+# Note: the default yaml need not to be modified if you add/remove files, to build an executable or some executables, but you can modify it at your will.
+
+# to build an library, you may specify your API, and then build it
+easyLLVM your_api.yaml
+
+```
+easyLLVM will determine your files automatically(for exampe, which files contains 'main' function), and then build them.
+# if you have multiple files contains 'main' function, it is also OK, easyLLVM will build them all. However, BE CAREFUL FOR NAME CONFLICTS!!! Only the 'main' function is allowed to be defined in multiple files, otherwise, it will cause name conflicts.
+
 ## Working Mode
 
 There are two working modes: traditional workflow mode and atomic mode.
 
 Traditional workflow mode is the traditional way to use LLVM, you may be familiar with it. If you want to use another project management tool, you may want to use this mode: just a simple command line, to read from a file and then output a file.
 
-Atomic mode is a new mode, which is designed to be used in a project management tool. It's a new way to use LLVM, which is more flexible and powerful.
+Atomic mode is a new mode, which is designed to be used in a project management tool. It's a new way to use LLVM, which is more flexible and powerful, as it can apply your configuration recursively, with leaf configuration overriding parent configuration.
 
 ### Traditional Workflow Mode
 
