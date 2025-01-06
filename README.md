@@ -9,7 +9,7 @@ This mode is the traditional way to use LLVM, input a file, output a file, with 
 
 If not specified as a project, this mode is the default mode of easyLLVM, as you can see, it's something just as simple as a wrapper of `clang`. Now you can use it as you like, to integrate into your project, and using it as a compiler adapter to replace `clang` or `llvm` in your project, to avoid the hassle of configuring `clang` or `llvm` in your project.
 
-There is only one exception, if your file contains `main` function, your output file will be a executable file, which is the default behavior of `clang`. This rule save you from manually choosing `-c` option for each file, is this good or bad? As it may break your traditional workflow which breaks the consistency of your project from `gcc` or `clang`, but it's a good thing to have. Anyway, you can always choose `no intelligent-c` mode to disable this feature. Or you can use some configuration to d.
+There is only one exception, if your file contains `main` function, your output file will be a executable file, which is the default behavior of `clang`, otherwise, it will be a `.o` file. This rule save you from manually choosing `-c` option for each file(-c is then omitted), is this good or bad? As it may break your traditional workflow which breaks the consistency of your project from `gcc` or `clang`, but it's a good thing to have. Anyway, you can always choose `no intelligent-c` mode to disable this feature. Or you can use some configuration to disable this feature for a specific file.
 
 ### Atomic Mode
 
