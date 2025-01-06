@@ -26,8 +26,25 @@ easyLLVM --init-project your_project.yaml
 easyLLVM your_api.yaml
 
 ```
-easyLLVM will determine your files automatically(for exampe, which files contains 'main' function), and then build them.
-# if you have multiple files contains 'main' function, it is also OK, easyLLVM will build them all. However, BE CAREFUL FOR NAME CONFLICTS!!! Only the 'main' function is allowed to be defined in multiple files, otherwise, it will cause name conflicts.
+By default, easyLLVM will determine your files automatically (for exampe, which files contains 'main' function), and then build them.
+If you have multiple files contains 'main' function, it is also OK, easyLLVM will build them all. However, BE CAREFUL FOR NAME CONFLICTS!!! Only the 'main' function is allowed to be defined in 
+multiple files, otherwise, it will cause name conflicts.
+
+However, all above can be overridden by your configuration, you can specify which is your files to be built, and specify the output file name, and how to build them. easyLLVM will follow your configuration to build your project.
+
+Your global configuration is in `~/.easyLLVM/config.yaml`, you can modify it at your will.
+
+For your project configuration, it is in your project directory, named `<your_project>.yaml`, you can modify it at your will.
+
+You can also specify your leaf nodes configuration, as a part of your project. For example, if your file is `a.c`, `a.c.yaml` is the configuration for `a.c`.
+
+We propose a new way to use LLVM, which is more flexible and powerful, as it can apply your configuration recursively, with leaf configuration overriding parent configuration.
+
+To manage these configurations, you can use easyLLVMGUI, which is a GUI tool for managing your configurations.
+
+Note: You are not supposed to build a file under a project independently, you must build the whole project to build a file for consistency(as a signal file won't inherit the configuration of its parent). However, you can specify a `main` function or specify some properties in the project root to build a certain file for debug purpose.
+
+Projects may be nested, and the default behavior is the child project will override the parent project's configuration, so it's safe to import a parent project into a child project.
 
 ## Working Mode
 
