@@ -3,6 +3,14 @@ A user-friendly configurator for simplifying LLVM processing workflows, supporti
 
 ## Usage
 
+## Working Mode
+
+There are two working modes: traditional workflow mode and atomic mode.
+
+Traditional workflow mode is the traditional way to use LLVM, you may be familiar with it. If you want to use another project management tool, you may want to use this mode: just a simple command line, to read from a file and then output a file.
+
+Atomic mode is a new mode, which is designed to be used in a project management tool. It's a new way to use LLVM, which is more flexible and powerful.
+
 ### Traditional Workflow Mode
 
 This mode is the traditional way to use LLVM, input a file, output a file, with customizable configuration for each process. For example, you can choose to compile the file using easyLLVM just like you compile it directly with `clang` or `clang++`. 
