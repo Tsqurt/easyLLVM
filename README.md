@@ -3,7 +3,7 @@ A user-friendly configurator for simplifying LLVM processing workflows, supporti
 
 ## Usage
 
-Note: this feature is not implemented yet.
+Note: this feature has not been implemented yet.
 
 ```bash
 # easyLLVM is an adapter for compiler, you can use it, just like clang
