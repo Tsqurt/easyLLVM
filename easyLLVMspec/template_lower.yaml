@@ -1,1 +1,2 @@
-target_triple: auto
+lower:
+  target_triple: auto

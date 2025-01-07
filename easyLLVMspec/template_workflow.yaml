@@ -1,30 +1,31 @@
-# All the settings in this file will never be inherited by the child.
-# This option will disable 
-unit_add: auto # auto-detect compileable files
-# unit_add: "path/to/file.cpp" # specify a single file to be added
-# unit_add: "path/to/dir/" # specify a directory to be added
-# unit_add: 
-#   - "path/to/file.cpp"
-#   - "path/to/dir/" # specify multiple files or directories to be added
-# unit_add: nil # no need to add any files
+workflow:
+  # All the settings in this file will never be inherited by the child.
+  # This option will disable 
+  unit_add: auto # auto-detect compileable files
+  # unit_add: "path/to/file.cpp" # specify a single file to be added
+  # unit_add: "path/to/dir/" # specify a directory to be added
+  # unit_add: 
+  #   - "path/to/file.cpp"
+  #   - "path/to/dir/" # specify multiple files or directories to be added
+  # unit_add: nil # no need to add any files
 
-# If a file is both in unit_add and unit_exclude, it will be excluded.
-unit_exclude: nil # no need to exclude any files
-# unit_exclude: "path/to/file.cpp" # specify a single file to be excluded
-# unit_exclude: "path/to/dir/" # specify a directory to be excluded
-# unit_exclude: 
-#   - "path/to/file.cpp"
-#   - "path/to/dir/" # specify multiple files or directories to be excluded
-# unit_exclude: all # exclude all files
-# unit_exclude: leaf # exclude all directories
+  # If a file is both in unit_add and unit_exclude, it will be excluded.
+  unit_exclude: nil # no need to exclude any files
+  # unit_exclude: "path/to/file.cpp" # specify a single file to be excluded
+  # unit_exclude: "path/to/dir/" # specify a directory to be excluded
+  # unit_exclude: 
+  #   - "path/to/file.cpp"
+  #   - "path/to/dir/" # specify multiple files or directories to be excluded
+  # unit_exclude: all # exclude all files
+  # unit_exclude: leaf # exclude all directories
 
-# TODO: process_override and customize
-process_sequence:
-  - frontend # Parse source code into AST, perform semantic analysis, and generate IR
-  - override # Override the settings in the frontend
-  - optimize # Perform LLVM optimization passes
-  - llvm_link # Link LLVM IR together
-  - optimize # Perform LLVM optimization passes
-  - lower  # Generate target-specific machine code from IR
-  - target_link # Link object files and libraries
-  - done     # Compilation complete
+  # TODO: process_override and customize
+  process_sequence:
+    - frontend # Parse source code into AST, perform semantic analysis, and generate IR
+    - override # Override the settings in the frontend
+    - optimize # Perform LLVM optimization passes
+    - llvm_link # Link LLVM IR together
+    - optimize # Perform LLVM optimization passes
+    - lower  # Generate target-specific machine code from IR
+    - target_link # Link object files and libraries
+    - done     # Compilation complete
