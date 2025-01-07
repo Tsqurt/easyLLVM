@@ -1,0 +1,25 @@
+# This file is designed for atomic mode. i.e. to specify some options for a single file.
+
+# 3.1 --- C file ---
+# [auto, clang, gcc-dragon-egg]
+c_process_tool: auto
+
+specify_target:
+  triple: native
+  # or an array of [arch, sub, vendor, sys, env]
+  # - arch: x86_64, i386, arm, thumb, mips, etc.
+  # - sub: for ex. on ARM: v5, v6m, v7a, v7m, etc.
+  # - vendor: pc, apple, nvidia, ibm, etc.
+  # - sys: none, linux, win32, darwin, cuda, etc.
+  # - env: eabi, gnu, android, macho, elf, etc.
+
+c_preprocess_optimization_level: O3
+
+# 4. --- Specify how to preprocess a single atom in IR level---
+
+# [natural_atoms, logical_atoms, debug_rescue]
+atom_process_method: natural_atoms
+
+optimization_level: O3
+c_preprocess_optimization_level_override: enable
+# [enable, disable]

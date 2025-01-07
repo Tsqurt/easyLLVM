@@ -42,7 +42,9 @@ We propose a new way to use LLVM, which is more flexible and powerful, as it can
 
 To manage these configurations, you can use easyLLVMGUI, which is a GUI tool for managing your configurations.
 
-Note: You are not supposed to build a file under a project independently, you must build the whole project to build a file for consistency (as a signal file won't inherit the configuration of its parent). However, you can specify a `main` function or specify some properties in the project root to build a certain file for debug purpose.
+Note 1: You are not supposed to build a file under a project independently, you must build the whole project to build a file for consistency (as a signal file won't inherit the configuration of its parent). However, you can specify a `main` function or specify some properties in the project root to build a certain file for debug purpose.
+
+Note 2: easyLLVM is not designed for fast compilation, it's designed for fast configuration and management. But you can customize your compilation speed, as it can apply your configuration recursively, with leaf configuration overriding parent configuration. In the future, we will provide a way to customize your compilation speed, by adding a cache to your configuration.
 
 Projects may be nested, and the default behavior is the child project will override the parent project's configuration, so it's safe to import a parent project into a child project.
 
