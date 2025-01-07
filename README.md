@@ -48,6 +48,8 @@ Projects may be nested, and the default behavior is the child project will overr
 
 ## Working Mode
 
+To build a full and modern project, you need to combine the traditional workflow mode and atomic mode together. Let's see how to use them.
+
 There are two working modes: traditional workflow mode and atomic mode.
 
 Traditional workflow mode is the traditional way to use LLVM, you may be familiar with it. If you want to use another project management tool, you may want to use this mode: just a simple command line, to read from a file and then output a file.
@@ -71,3 +73,5 @@ Generally, easyLLVM provide two types of atomic mode:
 2. **logical atoms** Initialize a project, input multiple files, split these files into **logical atoms** if you like - generally speaking, each file contains only one function or global object, and then build into a library through automated analysis of atomic dependencies.
 
 Whether you use natural atoms or logical atoms, be free to choose the mode you like. The only difference is that natural atoms will be seen as a free part, without any dependency analysis. So if you want to carry out some dependency analysis and remove some unused parts automatically, you must use logical atoms, especially when you want to build a library - you can ensure that the library is minimal and never emit any unused parts (and you can remove symbols' name in default). If you use natural atoms, you can only remove unused parts manually or specify some options/passes to remove them.
+
+In workflow mode, each file is processed to produce a list of atoms. We process each atom in the list, and then merge them together to produce the final output or list.
