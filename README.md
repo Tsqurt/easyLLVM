@@ -32,7 +32,7 @@ multiple files, otherwise, it will cause name conflicts.
 
 However, all above can be overridden by your configuration, you can specify which is your files to be built, and specify the output file name, and how to build them. easyLLVM will follow your configuration to build your project.
 
-Your global configuration is in `~/.easyLLVM/config.yaml`, you can modify it at your will.
+Your global configuration is in `~/.easyLLVM/config.yaml`, you can modify it at your will. `easyLLVM --reset-global-config` will reset it. However, it's not recommended to modify it, as it may cause unexpected behavior.
 
 For your project configuration, it is in your project directory, named `<your_project>.yaml`, you can modify it at your will.
 
@@ -42,7 +42,7 @@ We propose a new way to use LLVM, which is more flexible and powerful, as it can
 
 To manage these configurations, you can use easyLLVMGUI, which is a GUI tool for managing your configurations.
 
-Note: You are not supposed to build a file under a project independently, you must build the whole project to build a file for consistency(as a signal file won't inherit the configuration of its parent). However, you can specify a `main` function or specify some properties in the project root to build a certain file for debug purpose.
+Note: You are not supposed to build a file under a project independently, you must build the whole project to build a file for consistency (as a signal file won't inherit the configuration of its parent). However, you can specify a `main` function or specify some properties in the project root to build a certain file for debug purpose.
 
 Projects may be nested, and the default behavior is the child project will override the parent project's configuration, so it's safe to import a parent project into a child project.
 
@@ -71,4 +71,3 @@ Generally, easyLLVM provide two types of atomic mode:
 2. **logical atoms** Initialize a project, input multiple files, split these files into **logical atoms** if you like - generally speaking, each file contains only one function or global object, and then build into a library through automated analysis of atomic dependencies.
 
 Whether you use natural atoms or logical atoms, be free to choose the mode you like. The only difference is that natural atoms will be seen as a free part, without any dependency analysis. So if you want to carry out some dependency analysis and remove some unused parts automatically, you must use logical atoms, especially when you want to build a library - you can ensure that the library is minimal and never emit any unused parts (and you can remove symbols' name in default). If you use natural atoms, you can only remove unused parts manually or specify some options/passes to remove them.
-
