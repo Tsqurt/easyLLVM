@@ -18,8 +18,10 @@ unit_exclude: nil # no need to exclude any files
 # unit_exclude: all # exclude all files
 # unit_exclude: leaf # exclude all directories
 
+# TODO: process_override and customize
 process_sequence:
   - frontend # Parse source code into AST, perform semantic analysis, and generate IR
+  - override # Override the settings in the frontend
   - optimize # Perform LLVM optimization passes
   - llvm_link # Link LLVM IR together
   - optimize # Perform LLVM optimization passes

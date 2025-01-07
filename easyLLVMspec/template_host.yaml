@@ -1,7 +1,6 @@
 # This file is designed for complete project building. If you want to keep it simple, just copy the field you need. Unspecified fields will be inherited from the parent.
 
 # Host Configuration Options: Host Platform && Available Tools
-
 # we want to know how to use tools, available modes are:
 exec_mode: bash
 # [bash, powershell, libc, subprocess]
@@ -16,3 +15,7 @@ flang_path: auto  # Fortran compiler
 rustc_path: auto  # Rust compiler
 ghc_path: auto  # Haskell compiler
 swift_path: auto  # Swift compiler
+
+guest: native
+optimization_level: O2
+debug_information: enable
