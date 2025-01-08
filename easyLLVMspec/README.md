@@ -6,18 +6,18 @@ This directory contains the specification for easyLLVM configuration system, whi
 
 easyLLVM uses a hierarchical configuration system with three levels:
 
-1. Global Configuration (`~/.easyLLVM/config.yaml`)
+1. Global Configuration (`~/.ez`)
    - System-wide default settings
    - Not recommended to modify directly
    - Can be reset using `easyLLVM --reset-global-config`
 
-2. Project Configuration (`<project_name>.yaml`) 
+2. Project Configuration (`<project_name>.ez`) 
    - Project-level settings
    - Overrides global configuration if specified
    - Defines project structure, build targets, and dependencies (if any)
    - Supports nested projects with child projects inheriting parent settings
 
-3. Leaf Configuration (`<source_file>.yaml`)
+3. Leaf Configuration (`<source_file>.ez`)
    - File-specific settings
    - Highest priority, overrides project and global settings
    - Controls compilation flags, optimization levels etc. for individual files

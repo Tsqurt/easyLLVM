@@ -29,4 +29,4 @@ workflow:
     - optimize # Perform LLVM optimization passes
     - lower  # Generate target-specific machine code from IR
     - target_link # Link object files and libraries
-    - done     # Compilation complete
+    - done     # For demo, this is the last stage

@@ -21,4 +21,4 @@ host:
   guest: native
   optimization_level: O1
   debug_information: enable
-  build_directory: .
+  build_directory: /tmp/easyLLVM
