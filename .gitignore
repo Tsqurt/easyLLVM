@@ -172,3 +172,4 @@ cython_debug/
 
 # easyLLVM
 easyLLVMspec/template_easyLLVM.yaml
+easyLLVMspec/template_easyLLVM.ez

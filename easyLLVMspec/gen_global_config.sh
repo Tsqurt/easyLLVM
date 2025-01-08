@@ -1,3 +1,4 @@
 rm -f template_easyLLVM.yaml
-cat *.yaml > template_easyLLVM.yaml
-ln -s template_easyLLVM.yaml ~/.ez
+cat *.yaml > template_easyLLVM.ez
+rm -f ~/.ez
+ln -s ~/easyLLVM/easyLLVMspec/template_easyLLVM.ez ~/.ez

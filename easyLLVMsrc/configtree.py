@@ -1,5 +1,4 @@
 # config_tree.py
-
 # config_tree:
 # root(default)
 #   |
@@ -9,17 +8,19 @@
 #        | config_file_1_1(workflow 1.1) /
 #        | config_file_1_2(workflow 1.2) /
 #        | ...
-#        | config_file_1_n(workflow 1.n) /
-#   |-- config_file_2(workflow 2) /
-#   |-- config_file_3(workflow 3) /
-#   |-- ...
-#   |-- config_file_n(workflow n) /
+    # two cases:
+    # 1. easyLLVM <config_file / input_file_with_config>
+    # 2. easyLLVM -<options> <input_file>
+    root = resolve_config(args)
+    process(root)
+    pprint.pprint(root["objects"], indent=4, width=80)
+    pprint.pprint(root["children"], indent=4, width=80)
 
 # demo :
 # node = {
 #     "config_file": "a.yaml",
 #     "config_content": {}, // need to be parsed and computed during building the tree
-#     "workflows": [], # List of workflow stages to execute in order
+#     "workflow": [], # List of workflow stages to execute in order
     # Example workflow:
     # [
     #   "frontend",    # Stage 1: Parse source code into AST and generate LLVM IR
@@ -31,10 +32,18 @@
     #   "target_link", # Stage 7: Link object files and libraries into final binary
     #   "done",        # Stage 8: Mark compilation workflow as complete, this stage will send the output to the parent workflow
     # ]
+#     "children": [], # List of children to be processed, a workflow will execute on such children
 #     "objects": [], # List of objects to be processed, a workflow will execute on such objects
+#     
 # }
 #
-
-
+def frontend_c(list_of_objects, frontend_c_config) -> list:
+    pass
+def override(list_of_objects, override_c_config) -> list:
+    pass
 def process(root):
+    print("TODO: children workflow!")
+    # for each workflow stage, execute it
+
+
     pass
