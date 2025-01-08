@@ -1,4 +1,3 @@
-import yaml
 import os
 import sys
 from resolve_config import resolve_config

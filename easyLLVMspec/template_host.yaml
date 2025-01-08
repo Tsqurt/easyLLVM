@@ -4,7 +4,7 @@ host:
 
   # Host Configuration Options: Host Platform && Available Tools
   # we want to know how to use tools, available modes are:
-  exec_mode: bash
+  exec_mode: subprocess
   # [bash, powershell, libc, subprocess]
 
   # Setting path for tools
