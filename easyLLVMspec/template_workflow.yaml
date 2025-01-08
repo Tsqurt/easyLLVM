@@ -1,7 +1,7 @@
 workflow:
   # All the settings in this file will never be inherited by the child.
   # This option will disable 
-  unit_add: auto # auto-detect compileable files
+  unit_add: nil # auto-detect compileable files
   # unit_add: "path/to/file.cpp" # specify a single file to be added
   # unit_add: "path/to/dir/" # specify a directory to be added
   # unit_add: 
@@ -20,7 +20,8 @@ workflow:
   # unit_exclude: leaf # exclude all directories
 
   # TODO: process_override and customize
-  process_sequence:
+  # default: if process_sequence is not specified, use the default sequence
+  process_sequence_default:
     - frontend # Parse source code into AST, perform semantic analysis, and generate IR
     - override # Override the settings in the frontend
     - optimize # Perform LLVM optimization passes

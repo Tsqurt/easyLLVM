@@ -2,6 +2,8 @@ import yaml
 import os
 import sys
 
+default_config_file = "~/.easyLLVM.yaml"
+
 def main():
     args = sys.argv[1:]
     if len(args) == 0:
