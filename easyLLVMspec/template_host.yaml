@@ -19,6 +19,6 @@ host:
   swift_path: auto  # Swift compiler
 
   guest: native
-  optimization_level: O2
+  optimization_level: O1
   debug_information: enable
   build_directory: build

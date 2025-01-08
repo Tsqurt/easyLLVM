@@ -2,5 +2,5 @@
 # it will be inherited from the parent directory
 # to disable this, set the option to disable
 override:
-  optimization_level: O2
+  optimization_level: auto
   target_triple: auto

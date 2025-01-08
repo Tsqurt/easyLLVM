@@ -1,2 +1,2 @@
 optimize:
-  optimization_level: O2
+  optimization_level: auto

@@ -14,11 +14,6 @@ frontend_c:
     # - sys: none, linux, win32, darwin, cuda, etc.
     # - env: eabi, gnu, android, macho, elf, etc.
 
-  c_preprocess_optimization_level: O3
+  c_preprocess_optimization_level: auto
 
-  # 4. --- Specify how to preprocess a single atom in IR level---
-
-  # [natural_atoms, logical_atoms, debug_rescue]
-  atom_process_method: natural_atoms
-
-  debug_information: enable
+  debug_information: auto
