@@ -61,7 +61,10 @@ def resolve_yaml(node):
     print("TODO: match")
     for unit_add in node["config_content"]["workflow"]["unit_add"]:
         node["objects"].append(unit_add)
-
+    
+    if "process_sequence" not in node["config_content"]["workflow"]:
+        node["workflow"]["process_sequence"] = node["config_content"]["workflow"]["process_sequence_default"]
+        
 def resolve_config(args):
     # 0. parse args
     # 1. resolve config file
